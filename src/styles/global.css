@@ -1,0 +1,101 @@
+@import './reset.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.layout {
+    /* padding-top: 52px; */
+    @apply pt-[52px];
+}
+.navbar {
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 52px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    background: white; */
+    @apply flex justify-between items-center fixed w-full h-[52px] top-0 shadow-sm bg-white;
+}
+
+li {
+    list-style: none;
+}
+
+.navbar-logo {
+    /* color: darkgreen;
+    font-size: 18px;
+    font-weighgt: 800;
+    cursor: pointer;
+    padding: 0px 18px; */
+    @apply text-green-800 text-lg font-semibold cursor-pointer px-[18px] py-0;
+}
+.navbar-list {
+    /* display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0px 18px; */
+
+    @apply flex gap-4 items-center px-[18px] py-0;
+}
+
+.navbar-list-item {
+    /* cursor: pointer; */
+    @apply cursor-pointer;
+}
+
+.navbar-list-item:hover {
+    /* color: darkgray; */
+    @apply text-gray-600;
+}
+
+.navbar-button {
+    /* display: none;
+    cursor: pointer; */
+    @apply hidden cursor-pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar--mobile {
+        /* position: fixed;
+        width: 100%;
+        top: 52px;
+        height: 100vh;
+        background: darkgreen;
+        color: white; */
+        @apply fixed w-full h-screen top-[52px] text-white bg-green-800;
+    }
+    .navbar-list {
+        /* display: none; */
+        @apply hidden;
+    }
+
+    .navbar-button {
+        /* display: block;
+        background: white;
+        border: none;
+        padding: 0px 18px; */
+        @apply block bg-white border-none px-[18px] py-0;
+    }
+
+    .navbar-list-item--mobile {
+        /* cursor: pointer; */
+        @apply cursor-pointer;
+    }
+
+    .navbar-list-item--mobile:hover {
+        /* color: darkgray; */
+        @apply text-gray-500;
+    }
+
+    .navbar-list--mobile {
+        /* display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: start;
+        padding: 24px 18px; */
+        @apply flex flex-col gap-4 items-start px-[18px] py-[24px];
+    }
+}

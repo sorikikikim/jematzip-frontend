@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+
     return (
         <header>
             <nav className="navbar">
@@ -13,12 +14,12 @@ export default function Navbar() {
                 </Link>
                 <ul className="navbar-list">
                     <li className="navbar-list-item">
-                        <Link to="/" className="navbar-list-item">
+                        <Link to="/restaurant" className="navbar-list-item">
                             맛집 목록
                         </Link>
                     </li>
                     <li className="navbar-list-item">
-                        <Link to="/" className="navbar-list-item">
+                        <Link to="/register" className="navbar-list-item">
                             맛집 등록
                         </Link>
                     </li>
@@ -45,12 +46,18 @@ export default function Navbar() {
                 <nav className="navbar--mobile">
                     <ul className="navbar-list--mobile">
                         <li className="navbar-list-item--mobile">
-                            <Link to="/" className="navbar-list-item--mobile">
+                            <Link
+                                to="/restaurant"
+                                className="navbar-list-item--mobile"
+                            >
                                 맛집 목록
                             </Link>
                         </li>
                         <li className="navbar-list-item--mobile">
-                            <Link to="/" className="navbar-list-item--mobile">
+                            <Link
+                                to="/register"
+                                className="navbar-list-item--mobile"
+                            >
                                 맛집 등록
                             </Link>
                         </li>
@@ -60,7 +67,10 @@ export default function Navbar() {
                             </Link>
                         </li>
                         <li className="navbar-list-item--mobile">
-                            <Link to="/" className="navbar-list-item--mobile">
+                            <Link
+                                to="/mypage"
+                                className="navbar-list-item--mobile"
+                            >
                                 로그인
                             </Link>
                         </li>

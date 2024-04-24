@@ -1,8 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const { kakao } = window;
-
-export default function Map(location) {
+export default function KakaoMap({ location }) {
     const mapContainer = useRef(null);
 
     useEffect(() => {
@@ -12,24 +10,34 @@ export default function Map(location) {
 
         document.head.appendChild(script);
         script.onload = () => {
-            kakao.maps.load(() => {
-                const position = new kakao.maps.LatLng(
-                    location.latitude,
-                    location.longitude
+            window.kakao.maps.load(() => {
+                const position = new window.kakao.maps.LatLng(
+                    location.lat,
+                    location.lng
                 );
                 const options = {
                     center: position,
                     level: 3,
                 };
 
-                const marker = new kakao.maps.Marker({
+                const marker = new window.kakao.maps.Marker({
                     position,
                 });
 
-                const map = new kakao.maps.Map(mapContainer.current, options);
+                const map = new window.kakao.maps.Map(
+                    mapContainer.current,
+                    options
+                );
                 marker.setMap(map);
             });
         };
-    }, [location.latitude, location.longitude]);
-    return <div id="map" className="w-full h-screen" ref={mapContainer}></div>;
+    }, []);
+
+    return (
+        <div
+            className="map"
+            ref={mapContainer}
+            style={{ width: '100%', height: '400px' }}
+        ></div>
+    );
 }

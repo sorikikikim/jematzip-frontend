@@ -3,9 +3,20 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
 .layout {
     /* padding-top: 52px; */
-    @apply pt-[52px];
+    @apply pt-[80px];
+}
+
+.main {
+    @apply px-[10%] py-[30px];
 }
 .navbar {
     /* display: flex;
@@ -17,11 +28,7 @@
     height: 52px;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     background: white; */
-    @apply flex justify-between items-center fixed w-full h-[52px] top-0 shadow-sm bg-white;
-}
-
-li {
-    list-style: none;
+    @apply flex justify-between items-center fixed w-full h-[80px] top-0 shadow-sm bg-white;
 }
 
 .navbar-logo {
@@ -57,6 +64,12 @@ li {
     @apply hidden cursor-pointer;
 }
 
+@media only screen and (min-width: 601px) {
+    .navbar-list--mobile {
+        @apply hidden;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .navbar--mobile {
         /* position: fixed;
@@ -65,7 +78,7 @@ li {
         height: 100vh;
         background: darkgreen;
         color: white; */
-        @apply fixed w-full h-screen top-[52px] text-white bg-green-800;
+        @apply fixed w-[40%] h-screen top-[80px] right-0 text-white bg-green-800 z-50;
     }
     .navbar-list {
         /* display: none; */

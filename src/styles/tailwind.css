@@ -19,3 +19,11 @@
 .card-buttons {
     @apply w-full px-4 flex justify-between hover:bg-gray-300;
 }
+
+.map {
+    @apply flex justify-center;
+}
+
+.detail-image {
+    @apply w-[40%] min-w-[300px] h-auto rounded-lg;
+}

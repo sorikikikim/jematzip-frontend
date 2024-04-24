@@ -15,9 +15,9 @@ export default function ListPage() {
 
     return (
         list && (
-            <div className="main">
+            <main className="main">
                 <CardList list={list} />
-            </div>
+            </main>
         )
     );
 }

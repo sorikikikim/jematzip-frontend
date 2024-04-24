@@ -1,3 +1,3 @@
 export default function RegisterPage() {
-    return <div className="main">RegisterPage</div>;
+    return <main className="main">RegisterPage</main>;
 }

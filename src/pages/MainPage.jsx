@@ -1,3 +1,3 @@
 export default function MainPage() {
-    return <div className="main">MainPage</div>;
+    return <main className="main">MainPage</main>;
 }

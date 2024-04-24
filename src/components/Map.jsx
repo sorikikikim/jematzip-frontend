@@ -17,7 +17,7 @@ export default function KakaoMap({ location }) {
                 );
                 const options = {
                     center: position,
-                    level: 3,
+                    level: 1,
                 };
 
                 const marker = new window.kakao.maps.Marker({
@@ -31,13 +31,13 @@ export default function KakaoMap({ location }) {
                 marker.setMap(map);
             });
         };
-    }, []);
+    }, [location]);
 
     return (
         <div
             className="map"
             ref={mapContainer}
-            style={{ width: '100%', height: '400px' }}
+            style={{ width: '80%', height: '400px' }}
         ></div>
     );
 }

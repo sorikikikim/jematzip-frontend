@@ -1,3 +1,3 @@
 export default function MyPage() {
-    return <div className="main">MyPage</div>;
+    return <main className="main">MyPage</main>;
 }

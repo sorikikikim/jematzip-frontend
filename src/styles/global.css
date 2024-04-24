@@ -28,7 +28,7 @@ body {
     height: 52px;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     background: white; */
-    @apply flex justify-between items-center fixed w-full h-[80px] top-0 shadow-sm bg-white;
+    @apply flex justify-between items-center fixed w-full h-[80px] top-0 shadow-sm bg-white font-semibold;
 }
 
 .navbar-logo {
@@ -37,7 +37,7 @@ body {
     font-weighgt: 800;
     cursor: pointer;
     padding: 0px 18px; */
-    @apply text-green-800 text-lg font-semibold cursor-pointer px-[18px] py-0;
+    @apply text-green-800 text-lg font-bold cursor-pointer px-[18px] py-0;
 }
 .navbar-list {
     /* display: flex;

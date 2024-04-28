@@ -1,19 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import KakaoMap from '../components/Map';
 import { getRestaurant } from '../api/restaurantApi';
 import { Link, useParams } from 'react-router-dom';
 
 export default function DetailPage() {
-    const [item, setItem] = useState();
     const { id } = useParams();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await getRestaurant(id);
-            setItem(response.data);
-        };
-        fetchData();
-    }, [id]);
+    const {
+        data: item,
+        isLoading,
+        isError,
+    } = useQuery({
+        queryKey: ['restaurant', id],
+        queryFn: () => getRestaurant(id),
+        cachetime: 30 * 60 * 1000,
+    });
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (isError) {
+        return <div>Error fetching data</div>;
+    }
 
     return (
         item && (

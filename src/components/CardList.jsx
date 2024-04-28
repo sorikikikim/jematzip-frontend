@@ -2,9 +2,9 @@ import Card from './Card';
 
 export default function CardList({ list }) {
     return (
-        <ul class="card-list">
+        <ul className="card-list">
             {list.map((el) => (
-                <li>
+                <li key={el.__id}>
                     <Card el={el} />
                 </li>
             ))}

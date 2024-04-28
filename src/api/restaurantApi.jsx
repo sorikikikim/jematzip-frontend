@@ -3,7 +3,7 @@ import { instance } from './axios';
 export const getRestaurantList = async () => {
     try {
         const response = await instance.get('/restaurant');
-        return response;
+        return response.data;
     } catch (err) {
         console.error(err);
     }
@@ -12,7 +12,7 @@ export const getRestaurantList = async () => {
 export const getRestaurant = async (id) => {
     try {
         const response = await instance.get(`/restaurant/${id}`);
-        return response;
+        return response.data;
     } catch (err) {
         console.error(err);
     }

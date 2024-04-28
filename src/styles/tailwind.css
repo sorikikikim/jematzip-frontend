@@ -1,11 +1,11 @@
 @import './global.css';
 
 .card-list {
-    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10;
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10;
 }
 
 .card {
-    @apply bg-white shadow-md rounded-lg overflow-hidden min-w-[200px] mx-auto flex flex-col items-center py-4 hover:bg-gray-300;
+    @apply bg-white shadow-md rounded-lg overflow-hidden min-w-[280px] max-w-[400px] mx-auto flex flex-col items-center py-4 hover:bg-gray-300;
 }
 
 .card-image {
@@ -13,7 +13,7 @@
 }
 
 .card-detail {
-    @apply w-full px-4 py-2 flex flex-col  justify-center my-2;
+    @apply w-[85%] px-4 py-2 flex flex-col  justify-center my-2;
 }
 
 .card-buttons {
@@ -26,4 +26,14 @@
 
 .detail-image {
     @apply w-[40%] min-w-[300px] h-auto rounded-lg;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    width: 30%;
 }

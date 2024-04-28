@@ -4,5 +4,5 @@
 - '제맛이지' 라는 추천 기능을 통해 지역민들의 선호도를 파악 가능
 
 ### 기술 스택
-- React, JavaScript, Tailwind, CSS, Redux Toolkit, react-query
+- React, JavaScript, Tailwind, CSS, redux-toolkit, react-query
 - AWS S3, cloud front

@@ -1,66 +1,53 @@
-import { useQuery } from '@tanstack/react-query';
 import KakaoMap from '../components/Map';
-import { getRestaurant } from '../api/restaurantApi';
 import { Link, useParams } from 'react-router-dom';
+import { useRestaurantItemQuery } from '../hooks/useRestaurantQuery';
 
 export default function DetailPage() {
     const { id } = useParams();
-
-    const {
-        data: item,
-        isLoading,
-        isError,
-    } = useQuery({
-        queryKey: ['restaurant', id],
-        queryFn: () => getRestaurant(id),
-        cachetime: 30 * 60 * 1000,
-    });
-
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-
-    if (isError) {
-        return <div>Error fetching data</div>;
-    }
+    const { restaurantItem, isLoading } = useRestaurantItemQuery(id);
 
     return (
-        item && (
-            <main className="main">
+        <main className="main">
+            {isLoading && <div>Loading...</div>}
+            {restaurantItem && !isLoading && (
                 <section className="detail">
                     <article className="detail-content">
                         <img
                             src={
-                                item.thumbnail
-                                    ? item.thumbnail
+                                restaurantItem.thumbnail
+                                    ? restaurantItem.thumbnail
                                     : 'image/img-notFound.webp'
                             }
-                            alt={`${item.name}의 이미지`}
+                            alt={`${restaurantItem.name}의 이미지`}
                             className="detail-image"
                         />
                         <div className="detail-info">
-                            <h2 className="detail-name">{item.name}</h2>
+                            <h2 className="detail-name">
+                                {restaurantItem.name}
+                            </h2>
                             <p className="detail-address">
-                                도로명 주소: {item.location.roadAddress}
+                                도로명 주소:{' '}
+                                {restaurantItem.location.roadAddress}
                             </p>
                             <p className="detail-address">
-                                지번 주소: {item.location.parcelAddress}
+                                지번 주소:{' '}
+                                {restaurantItem.location.parcelAddress}
                             </p>
-                            <p>영업시간: {item.openingHours}</p>
-                            <p>{item.category}</p>
-                            <p>전화번호: {item.contact}</p>
-                            {item.website && (
-                                <Link to={item.website}>
-                                    링크: {item.website}
+                            <p>영업시간: {restaurantItem.openingHours}</p>
+                            <p>{restaurantItem.category}</p>
+                            <p>전화번호: {restaurantItem.contact}</p>
+                            {restaurantItem.website && (
+                                <Link to={restaurantItem.website}>
+                                    링크: {restaurantItem.website}
                                 </Link>
                             )}
                         </div>
                     </article>
                     <section className="detail-map">
-                        <KakaoMap location={item.location} />
+                        <KakaoMap location={restaurantItem.location} />
                     </section>
                 </section>
-            </main>
-        )
+            )}
+        </main>
     );
 }
